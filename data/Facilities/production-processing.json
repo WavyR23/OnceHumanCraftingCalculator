@@ -1,17 +1,11 @@
 {
     "Processing Facilities": {
-        "Flour Mill": {
+        "Compost Bin": {
+            "image": "",
             "materials": {
-                "Flour": 100,
-                "Water": 200,
-                "Power": 300
-            }
-        },
-        "Sugar Refinery": {
-            "materials": {
-                "Sugar": 150,
-                "Water": 250,
-                "Power": 350
+                "Log": 30,
+                "Metal Scraps": 10,
+                "Sintered Brick": 10
             }
         }
     }

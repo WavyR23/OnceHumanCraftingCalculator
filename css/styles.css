@@ -1,26 +1,42 @@
 body {
-    font-family: Arial, sans-serif;
-    background-image: url('https://cdn.discordapp.com/attachments/1141505267427708928/1274193490519003198/Background.jpg?ex=66c15ca9&is=66c00b29&hm=5017f09be0e19ad963399aed965f14a5eb2fccd640645990e504c55dee36cb10&'); /* Use your image path or URL */
-background-size: cover; /* Ensures the image covers the entire background */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-position: center top; /* Positions the image at the top and centers it horizontally */
-    background-attachment: fixed; /* Keeps the background fixed while scrolling */
-    margin: 0;
-    padding: 20px;
-    height: 100vh; /* Set height to 100% of the viewport */
     display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: black;
+    background-size: cover;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: -50px; /* Adjust as needed */
+}
+
+.logo {
+    width: 400px;
+    position: relative;
+    z-index: 10;
+    margin-top: 40px; /* Add space above the logo */
 }
 
 .container {
     max-width: 600px;
-    margin: auto;
-    background: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+    width: 100%;
     padding: 20px;
-    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.6);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    margin-top: 100px; /* Space for the logo */
 }
+
+h1 {
+    margin-top: 0;
+}
+
 
 h1, h2 {
     color: #333;
@@ -32,14 +48,15 @@ label {
 }
 
 #calculate-button {
-    display: block;
-    margin: 20px 0;
+    display: block; /* Ensures the button is treated as a block element */
+    margin: 20px auto; /* 'auto' left and right margins center the button horizontally */
     padding: 10px 20px;
     background-color: #28a745;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    text-align: center; /* This ensures any text inside is centered */
 }
 
 #calculate-button:hover {

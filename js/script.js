@@ -12,9 +12,10 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(response => response.json())
             .then(data => {
                 materialsData = data;
+                console.log('Loaded Material Keys:', Object.keys(materialsData)); // Log the keys of materialsData
             })
             .catch(error => console.error('Error loading materials:', error));
-    }
+    }    
 
     // Function to load categories from JSON file
     function loadCategories() {
@@ -101,45 +102,57 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to calculate total materials required based on selected recipe(s) and their quantities
     function calculateTotalMaterials() {
         const selectedRecipes = Array.from(document.querySelectorAll('input[name="recipe"]:checked'));
-
+    
         let totalMaterials = {};
-
+    
         selectedRecipes.forEach(checkbox => {
             const recipe = checkbox.value;
-            const quantityInput = checkbox.parentElement.querySelector('.quantity-input');
-            const quantity = parseInt(quantityInput.value);
-
-            console.log(`Calculating for recipe: ${recipe} with quantity: ${quantity}`);
-
-            for (let subcategory in currentRecipes) {
-                if (currentRecipes[subcategory][recipe]) {
-                    const materials = currentRecipes[subcategory][recipe].materials;
-                    for (let material in materials) {
-                        const requiredAmount = materials[material] * quantity;
-
-                        if (totalMaterials[material]) {
-                            totalMaterials[material].amount += requiredAmount;
-                        } else {
-                            totalMaterials[material] = {
-                                amount: requiredAmount,
-                                image: materialsData[material].image,
-                                unit: materialsData[material].unit
-                            };
+            const quantityInput = checkbox.closest('div').querySelector('.quantity-input');
+    
+            if (quantityInput) {
+                const quantity = parseInt(quantityInput.value);
+    
+                console.log(`Calculating for recipe: ${recipe} with quantity: ${quantity}`);
+    
+                for (let subcategory in currentRecipes) {
+                    if (currentRecipes[subcategory][recipe]) {
+                        const materials = currentRecipes[subcategory][recipe].materials;
+                        for (let material in materials) {
+                            // Accessing the correct nested structure
+                            const materialData = materialsData.materials[material];
+    
+                            if (materialData) { 
+                                const requiredAmount = materials[material] * quantity;
+    
+                                if (totalMaterials[material]) {
+                                    totalMaterials[material].amount += requiredAmount;
+                                } else {
+                                    totalMaterials[material] = {
+                                        amount: requiredAmount,
+                                        image: materialData.image,
+                                        unit: materialData.unit
+                                    };
+                                }
+                            } else {
+                                console.error(`Material '${material}' not found in materials data. Make sure it's spelled correctly in materials.json.`);
+                            }
                         }
                     }
                 }
+            } else {
+                console.error(`Quantity input for recipe ${recipe} not found.`);
             }
         });
-
+    
         console.log("Total Materials Calculated:", totalMaterials);
         displayResults(totalMaterials);
-    }
-
+    }        
+    
     // Function to display the calculation results
     function displayResults(totalMaterials) {
         const materialsList = document.getElementById('materials-list');
         materialsList.innerHTML = '';  // Clear previous results
-
+    
         if (Object.keys(totalMaterials).length === 0) {
             const li = document.createElement('li');
             li.textContent = 'No recipe selected.';
@@ -149,21 +162,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 const li = document.createElement('li');
                 const img = document.createElement('img');
                 const text = document.createElement('span');
-
+    
                 img.src = totalMaterials[material].image;
                 img.alt = material;
                 img.style.width = '50px';
                 img.style.height = '50px';
                 img.style.marginRight = '10px';
-
+    
                 text.textContent = `${material}: ${totalMaterials[material].amount} ${totalMaterials[material].unit}`;
-
+    
                 li.appendChild(img);
                 li.appendChild(text);
                 materialsList.appendChild(li);
             }
         }
-    }
+    }    
 
     // Event listener for category selection
     categorySelect.addEventListener('change', function() {
