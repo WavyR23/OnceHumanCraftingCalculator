@@ -1,0 +1,20 @@
+{
+    "categories": [
+        {
+            "name": "Facilities",
+            "folder": "Facilities",
+            "subcategories": [
+                { "name": "Production Processing", "file": "production-processing.json" },
+                { "name": "Storage Facility", "file": "storage-facility.json" }
+            ]
+        },
+        {
+            "name": "Furniture",
+            "folder": "Furniture",
+            "subcategories": [
+                { "name": "Lighting", "file": "lighting.json" },
+                { "name": "Lifestyle items", "file": "lifestyle-items.json" }
+            ]
+        }
+    ]
+}

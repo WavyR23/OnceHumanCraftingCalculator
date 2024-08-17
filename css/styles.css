@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://cdn.discordapp.com/attachments/1141505267427708928/1274193490519003198/Background.jpg?ex=66c15ca9&is=66c00b29&hm=5017f09be0e19ad963399aed965f14a5eb2fccd640645990e504c55dee36cb10&'); /* Use your image path or URL */
+background-size: cover; /* Ensures the image covers the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center top; /* Positions the image at the top and centers it horizontally */
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+    margin: 0;
+    padding: 20px;
+    height: 100vh; /* Set height to 100% of the viewport */
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#calculate-button {
+    display: block;
+    margin: 20px 0;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#calculate-button:hover {
+    background-color: #218838;
+}
+
+#result {
+    margin-top: 20px;
+}

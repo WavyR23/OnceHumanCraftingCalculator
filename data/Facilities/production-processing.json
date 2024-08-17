@@ -1,0 +1,19 @@
+{
+    "Processing Facilities": {
+        "Flour Mill": {
+            "materials": {
+                "Flour": 100,
+                "Water": 200,
+                "Power": 300
+            }
+        },
+        "Sugar Refinery": {
+            "materials": {
+                "Sugar": 150,
+                "Water": 250,
+                "Power": 350
+            }
+        }
+    }
+}
+

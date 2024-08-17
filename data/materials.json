@@ -1,0 +1,24 @@
+{
+    "materials": {
+        "Flour": {
+            "image": "images/materials/flour.jpg",
+            "description": "Used in baking various recipes."
+        },
+        "Water": {
+            "image": "images/materials/water.jpg",
+            "description": "A universal solvent used in many recipes."
+        },
+        "Power": {
+            "image": "images/materials/power.jpg",
+            "description": "Energy required for processing."
+        },
+        "Wood": {
+            "image": "images/materials/wood.jpg",
+            "description": "Material used for making furniture."
+        },
+        "Fabric": {
+            "image": "images/materials/fabric.jpg",
+            "description": "Used in furniture upholstery."
+        }
+    }
+}

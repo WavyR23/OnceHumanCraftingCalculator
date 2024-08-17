@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Material Calculator</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Recipe Material Calculator</h1>
+
+        <!-- Category Selection -->
+        <div class="category-selection">
+            <h2>Select Category</h2>
+            <select id="category-select">
+                <option value="">Select a Category</option>
+            </select>
+        </div>
+
+        <!-- Subcategory Selection -->
+        <div class="subcategory-selection" style="display:none;">
+            <h2>Select Subcategory</h2>
+            <select id="subcategory-select">
+                <option value="">Select a Subcategory</option>
+            </select>
+        </div>
+
+        <!-- Recipe Selection -->
+        <div class="recipe-selection">
+            <h2>Select Recipe(s) and Quantity</h2>
+            <div id="recipe-options">
+                <!-- Recipe checkboxes and quantity inputs will be dynamically added here -->
+            </div>
+        </div>
+
+        <!-- Calculate Button -->
+        <button id="calculate-button">Calculate Total Materials</button>
+
+        <!-- Result Section -->
+        <div id="result">
+            <h2>Total Materials Required</h2>
+            <ul id="materials-list">
+                <!-- Calculated materials with images will be displayed here -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
